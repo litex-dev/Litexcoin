@@ -1,0 +1,26 @@
+# /etc/conf.d/ltxd: config file for /etc/init.d/ltxd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/ltx/ltx.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/ltxd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/ltxd.pid"
+
+# Where to write ltxd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/ltxd"
+
+# User and group to own ltxd process
+#BITCOIND_USER="ltx"
+#BITCOIND_GROUP="ltx"
+
+# Path to ltxd executable
+#BITCOIND_BIN="/usr/bin/ltxd"
+
+# Nice value to run ltxd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

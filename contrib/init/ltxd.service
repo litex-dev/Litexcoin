@@ -1,0 +1,26 @@
+[Unit]
+Description=LTX's distributed currency daemon
+After=network.target
+
+[Service]
+User=ltx
+Group=ltx
+
+Type=forking
+PIDFile=/var/lib/ltxd/ltxd.pid
+
+ExecStart=/usr/bin/ltxd -daemon -pid=/var/lib/ltxd/ltxd.pid \
+          -conf=/etc/ltx/ltx.conf -datadir=/var/lib/ltxd
+
+ExecStop=-/usr/bin/ltx-cli -conf=/etc/ltx/ltx.conf \
+         -datadir=/var/lib/ltxd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
